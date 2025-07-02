@@ -5,6 +5,7 @@ import 'package:redbull/pages/intro.dart';
 import 'package:redbull/pages/shop.dart';
 import 'package:redbull/userAuth/Auth.dart';
 import 'package:redbull/userAuth/loginandregister.dart';
+import 'package:redbull/userAuth/user.dart';
 
 
 class Homescreen extends StatefulWidget {
@@ -54,6 +55,10 @@ class _HomescreenState extends State<Homescreen> {
     else if(value==3){
       return Loginandregister();
     }
+
+    else if(value==4){
+      return UserProfile();
+    }
   }
 
   bottombarpage(index){
@@ -83,7 +88,7 @@ class _HomescreenState extends State<Homescreen> {
     return SafeArea(
       child: Scaffold(
       
-        drawer: Drawer(
+        drawer: value !=4? Drawer(
           backgroundColor: Color(0xFF00205B),
       
       // branding
@@ -173,39 +178,79 @@ class _HomescreenState extends State<Homescreen> {
                   ],
                 ),
       
-            //  logout
-               GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pop();
-                  Auth().signOut();
-                  setState(() {
-                    value=3;
-                  });
-                },
-                child: Container(
-                  height: 50,
-                  
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.transparent),
-                
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 25),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+            //  My account
+               Column(
+                 children: [
+                   GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                      setState(() {
+                        value=4;
+                      });
+                    },
+                    child: Container(
+                      height: 50,
                       
-                      children: [
-                        Icon(Icons.shopping_cart,color: Color(0xFFC0C0C0),),
-                        Text('    Logout',style: TextStyle(color: Color(0xFFFFD700),fontSize: 20,fontWeight: FontWeight.bold),),
-                      ],
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.transparent),
+                    
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 25),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          
+                          children: [
+                            Icon(Icons.account_box,color: Color(0xFFC0C0C0),),
+                            Text('    My Account',style: TextStyle(color: Color(0xFFFFD700),fontSize: 20,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
+                                 ),
+                   //  Logout 
+                                 GestureDetector(
+                    onTap: () {
+                       Navigator.of(context).pop();
+                      Auth().signOut();
+                      setState(() {
+                        value=3;
+                      });
+                    },
+                    child: Container(
+                      height: 50,
+                      
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.transparent),
+                    
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 25),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          
+                          children: [
+                            Icon(Icons.logout,color: Color(0xFFC0C0C0),),
+                            Text('    Logout',style: TextStyle(color: Color(0xFFFFD700),fontSize: 20,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                      ),
+                    ),
+                                 ),
+                 ],
+               ),
               ],
             ),
           )
       
-        ),
+        ):null,
         appBar: AppBar(
+          leading: value == 4
+              ? IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    setState(() {
+                      value = 1; // Go back to Shop or your desired page
+                    });
+                  },
+                )
+              : null,
           title: Center(child: Text('Redbull     ')),
         ),
         body:  bodypage(),

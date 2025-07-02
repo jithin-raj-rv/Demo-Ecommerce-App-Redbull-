@@ -32,8 +32,8 @@ updatecart(index){
 }
   removeitem(indexx){
     int index=CartData.cartItems.indexWhere((item)=>item[0]==drinks.stock[indexx][0]);
-    CartData.cartItems[index][2]=0;
-    CartData.cartItems.removeAt(index);
+    index!=-1?CartData.cartItems[index][2]=0:null;
+    index!=-1?CartData.cartItems.removeAt(index):null;
   }
   @override
   Widget build(BuildContext context) {

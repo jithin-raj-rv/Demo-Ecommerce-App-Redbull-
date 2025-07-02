@@ -12,19 +12,38 @@ class UserProfile extends StatelessWidget {
   }
 
   Widget _userUid() {
-    return Text(user?.email ?? 'User email');
+    return Text("Email: ${user?.email ?? 'User email'}");
   }
 
   Widget _signOutButton() {
     return ElevatedButton(
       onPressed: signOut,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0xFFFFD700), // Gold color
+        foregroundColor: Color(0xFF00205B), // Dark blue color
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+      ),
       child: Text('Sign Out'),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Homescreen();
+    return 
+    
+       Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _userUid(),
+            SizedBox(height: 20),
+            _signOutButton(),
+          ],
+        ),
+       );
+    
   }
 }
 

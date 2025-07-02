@@ -10,7 +10,8 @@ class CartDrinks extends StatefulWidget {
 
 class _CartDrinksState extends State<CartDrinks> {
   removeitem(index){
-    CartData.cartItems.removeAt(index);
+    CartData.cartItems[index][2]=0;
+    CartData.cartItems.isNotEmpty?CartData.cartItems.removeAt(index):null;
     widget.onZero();
   }
 
@@ -48,7 +49,7 @@ class _CartDrinksState extends State<CartDrinks> {
                           currentWidth<=500?Padding(
                             padding: const EdgeInsets.only(left: 10),
                             child: (
-                            Text("₹${CartData.cartItems[0][4].toString()}",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),)),
+                            Text("₹${CartData.cartItems[index][4].toString()}",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),)),
                           ):Container(),
                         ],
                       )

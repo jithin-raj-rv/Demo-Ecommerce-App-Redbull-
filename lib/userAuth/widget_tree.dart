@@ -1,4 +1,5 @@
 
+import 'package:redbull/homescreen.dart';
 import 'package:redbull/userAuth/Auth.dart';
 import 'package:redbull/userAuth/user.dart';
 import 'package:redbull/userAuth/loginandregister.dart';
@@ -18,7 +19,7 @@ class _WidgetTreeState extends State<WidgetTree> {
       stream: Auth().authStateChanges, 
       builder:(context, snapshot) {
         if (snapshot.hasData){
-          return UserProfile();
+          return Homescreen();
         }
         else {
           return const Loginandregister();

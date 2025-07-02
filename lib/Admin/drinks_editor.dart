@@ -35,8 +35,8 @@ updatecart(index){
 }
   removeitem(indexx){
     int index=CartData.cartItems.indexWhere((item)=>item[0]==drinks.stock[indexx][0]);
-    CartData.cartItems[index][2]=0;
-    CartData.cartItems.removeAt(index);
+    CartData.cartItems.isNotEmpty?CartData.cartItems[index][2]=0:null;
+    CartData.cartItems.isNotEmpty?CartData.cartItems.removeAt(index):null;
   }
   @override
   Widget build(BuildContext context) {
@@ -152,6 +152,8 @@ updatecart(index){
     );
   },
 );
+
+// saveDrinksToFirestore();
                       },
                       child: Text(drinks.stock[index][0],style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22),))),
                      Padding(

@@ -1,4 +1,32 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+//  Future<void> saveDrinksToFirestore() async {
+//   final collection = FirebaseFirestore.instance.collection('drinks');
+//   for (var drink in drinks.stock) {
+//     await collection.add({
+//       'name': drink[0],
+//       'image': drink[1],
+//       'quantity': drink[2],
+//       'description': drink[3],
+//       'price': drink[4],
+//     });
+//   }
+// }
+// Future<List<List<dynamic>>> fetchDrinksFromFirestore() async {
+//   final collection = FirebaseFirestore.instance.collection('drinks');
+//   final snapshot = await collection.get();
+//   List<List<dynamic>> drinksList = [];
+//   for (var doc in snapshot.docs) {
+//     drinksList.add([
+//       doc['name'],
+//       doc['image'],
+//       doc['quantity'],
+//       doc['description'],
+//       doc['price'],
+//     ]);
+//   }
+//   return drinksList;
+// }
 class drinks {
   static List stock = [
     // values are updated here
