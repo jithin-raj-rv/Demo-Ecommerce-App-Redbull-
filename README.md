@@ -27,4 +27,4 @@ Make sure you have [Flutter installed](https://docs.flutter.dev/get-started/inst
 
 **1. Clone the repository:**
 ```bash
-git clone [https://github.com/your-username/redbull.git](https://github.com/your-username/redbull.git)
+git clone [https://github.com/your-username/redbull.git](https://github.com/jithin-raj-rv/redbull.git)
