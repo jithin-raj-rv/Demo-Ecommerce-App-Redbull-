@@ -8,9 +8,13 @@ A simple, hand-coded Flutter application built from the ground up as a starting 
 ## 🎥 App Showcase & Screenshots
 
 ### Demo Video
+<table>
+  <tr>
 <p align="center">
   <video src="https://github.com/user-attachments/assets/121abd0c-193a-435e-91aa-1683ad12f40f" width="400" controls></video>
 </p>
+  </tr>
+</table>
 
 ### Screenshots
 <table>
